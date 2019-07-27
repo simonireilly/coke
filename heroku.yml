@@ -2,10 +2,14 @@ setup:
   addons:
   - plan: heroku-postgresql
     as: DATABASE
+  config:
+    GO_ENV: production
 build:
   docker:
     web: Dockerfile
-  config:
-    GO_ENV: production
+release:
+  image: worker
+  command:
+    - /bin/app migrate
 run:
   web: exec /bin/app
