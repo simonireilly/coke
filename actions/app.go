@@ -35,6 +35,7 @@ var T *i18n.Translator
 // declared after it to never be called.
 func App() *buffalo.App {
 	if app == nil {
+		// This is where we are actually creating the new buffalo app
 		app = buffalo.New(buffalo.Options{
 			Env:         ENV,
 			SessionName: "_coke_session",
