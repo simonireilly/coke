@@ -5,6 +5,7 @@ setup:
 build:
   docker:
     web: Dockerfile
+  config:
     GO_ENV: production
 run:
   web: exec /bin/app
